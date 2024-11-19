@@ -39,14 +39,14 @@ const groupVillage = (obj: any) => {
 const read = async () => {
   const f = await Deno.open("./wilayah.csv");
   for await (const obj of readCSVObjects(f)) {
-    // groupProvince(obj);
-    // groupCity(obj);
-    // groupDistrict(obj);
+    groupProvince(obj);
+    groupCity(obj);
+    groupDistrict(obj);
     groupVillage(obj);
   }
-  // write("01.province", rowsProvince);
-  // write("02.city", rowsCity);
-  // write("03.district", rowsDistrict);
+  write("01.province", rowsProvince);
+  write("02.city", rowsCity);
+  write("03.district", rowsDistrict);
   write("04.village", rowsVillage);
   f.close();
 };
